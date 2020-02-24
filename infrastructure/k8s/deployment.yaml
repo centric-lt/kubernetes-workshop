@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s101
+spec:
+  selector:
+    matchLabels:
+      app: k8s101
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: k8s101
+    spec:
+      containers:
+        - name: app
+          # in case you cannot build your own image, use this: tcentric/k8s-101
+          image: __YOUR_IMAGE_NAME__
+          ports:
+            - name: http
+              containerPort: 80
+          resources:
+            requests:
+              memory: "32Mi"
+              cpu: "50m"
+            limits:
+              memory: "32Mi"
+              cpu: "50m"

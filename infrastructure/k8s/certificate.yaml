@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: kw
+spec:
+  secretName: kw-tls
+  dnsNames:
+    # your UID can be found in here: https://kubernetes101.centric.engineering, it will be in format: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, use the first 8 characters only
+    - __FIRST_PART_OF_UID__.kubernetes101.centric.engineering
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer

@@ -1,0 +1,110 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC, #E0C3FC);
+    /*background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);*/
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 30s ease infinite;
+    -moz-animation: Gradient 30s ease infinite;
+    animation: Gradient 30s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.box div {
+    /*width: 100px;*/
+    /*height: 100%;*/
+}
+
+.text-gradient-1 {
+    font-family: 'Roboto', sans-serif;
+    color: #f35626;
+    background-image: linear-gradient(92deg, #f35626 0%, #feab3a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: hue 60s infinite linear;
+}
+
+.text-gradient-2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #cfd9df;
+    background-color: #cfd9df;
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: hue 60s infinite linear;
+}
+
+.huge {
+    font-size: 50px;
+}
+
+.progress-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+}
+
+.progress-container .bar {
+    width: 50%;
+    height: 100%;
+    background-color: #85FFBD;
+    /*background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);*/
+
+    /*background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);*/
+
+}
+

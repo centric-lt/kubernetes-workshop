@@ -1,0 +1,148 @@
+swagger: "2.0"
+info:
+  title: pods service
+  description: Service for pod info
+  version: ""
+host: 0.0.0.0:8080
+consumes:
+  - application/json
+  - application/xml
+  - application/gob
+produces:
+  - application/json
+  - application/xml
+  - application/gob
+paths:
+  /:
+    get:
+      summary: Download static/index.html
+      operationId: podinfo#/
+      responses:
+        "200":
+          description: File downloaded
+          schema:
+            type: file
+      schemes:
+        - http
+  /pod:
+    get:
+      tags:
+        - podinfo
+      summary: get podinfo
+      operationId: podinfo#get
+      responses:
+        "200":
+          description: OK response.
+          schema:
+            $ref: '#/definitions/PodinfoGetOKResponseBody'
+        "500":
+          description: Internal Server Error response.
+          schema:
+            $ref: '#/definitions/PodinfoGetInternalServerErrorResponseBody'
+      schemes:
+        - http
+  /ui/{*path}}:
+    get:
+      summary: Download static/
+      operationId: podinfo#/ui/{*path}
+      parameters:
+        - name: path
+          in: path
+          description: Relative file path
+          required: true
+          type: string
+      responses:
+        "200":
+          description: File downloaded
+          schema:
+            type: file
+        "404":
+          description: File not found
+          schema:
+            $ref: '#/definitions/Error'
+      schemes:
+        - http
+definitions:
+  Error:
+    title: 'Mediatype identifier: application/vnd.goa.error; view=default'
+    type: object
+    properties:
+      fault:
+        type: boolean
+        description: Is the error a server-side fault?
+        example: false
+      id:
+        type: string
+        description: ID is a unique identifier for this particular occurrence of the
+          problem.
+        example: 123abc
+      message:
+        type: string
+        description: Message is a human-readable explanation specific to this occurrence
+          of the problem.
+        example: parameter 'p' must be an integer
+      name:
+        type: string
+        description: Name is the name of this class of errors.
+        example: bad_request
+      temporary:
+        type: boolean
+        description: Is the error temporary?
+        example: true
+      timeout:
+        type: boolean
+        description: Is the error a timeout?
+        example: true
+    description: Error response result type (default view)
+    example:
+      fault: true
+      id: 123abc
+      message: parameter 'p' must be an integer
+      name: bad_request
+      temporary: false
+      timeout: true
+    required:
+      - name
+      - id
+      - message
+      - temporary
+      - timeout
+      - fault
+  PodinfoGetInternalServerErrorResponseBody:
+    title: 'Mediatype identifier: podinforesult; view=default'
+    type: object
+    properties:
+      hostname:
+        type: string
+        description: POD hostname
+        example: Dolore non saepe.
+      ip:
+        type: string
+        description: POD ip address
+        example: Debitis doloremque ab officiis at.
+    description: GetInternal Server ErrorResponseBody result type (default view)
+    example:
+      hostname: Tempora harum.
+      ip: Rerum eum iste recusandae qui alias sunt.
+    required:
+      - ip
+      - hostname
+  PodinfoGetOKResponseBody:
+    title: 'Mediatype identifier: podinforesult; view=default'
+    type: object
+    properties:
+      hostname:
+        type: string
+        description: POD hostname
+        example: Sed et vel ullam nihil labore et.
+      ip:
+        type: string
+        description: POD ip address
+        example: Aperiam ut aut cumque sit dignissimos eos.
+    description: GetOKResponseBody result type (default view)
+    example:
+      hostname: Placeat laboriosam qui.
+      ip: Quo maxime sed odio libero ut.
+    required:
+      - ip
+      - hostname

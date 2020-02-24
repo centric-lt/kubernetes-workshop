@@ -1,0 +1,17 @@
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: kw
+spec:
+  tls:
+    - secretName: kw-tls
+
+  rules:
+    # your UUID can be found in here: https://kubernetes101.centric.engineering, it will be in format: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, use the first 8 characters only
+    - host: __FIRST_PART_OF_UID__.kubernetes101.centric.engineering
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: k8s101
+              servicePort: 80
