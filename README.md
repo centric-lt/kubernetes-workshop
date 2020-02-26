@@ -18,7 +18,7 @@ If there's a problem with docker installation, skip this step.
 ### Build and push docker image (optional, but recommended)
 1. Clone this repository locally
 2. Login to your DockerId via Docker Desktop (from your machine)
-2. In the repo directory, run command: `docker build -t <yourdockerID name>/k8s-101:latest`, this will build the container image
+2. In the repo directory, run command: `docker build -t <yourdockerID name>/k8s-101:latest .`, this will build the container image
 3. Push the container image with command: `docker push <yourdockerID name>/k8s-101:latest`
 If there's a problem with docker installation or image building, skip this step.
 
